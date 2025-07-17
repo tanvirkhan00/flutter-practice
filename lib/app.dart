@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_practice_project/Module8_class1.dart';
 import 'package:flutter_practice_project/class3.dart';
 
 class MyApp  extends StatelessWidget {
@@ -8,7 +9,7 @@ class MyApp  extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'This is my first project',
-      home:Class3()
+      home:Module8()
     );
   }
 }
