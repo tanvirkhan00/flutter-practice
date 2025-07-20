@@ -12,7 +12,12 @@ class Module8Class2 extends StatelessWidget {
       ),
       body: Column(
         children: [
-          Image.network('https://w7.pngwing.com/pngs/128/77/png-transparent-logo-facebook-website-graphics-font-facebook-blue-text-logo.png')
+          Center(
+            child: Image.network('https://cdn.freebiesupply.com/logos/large/2x/facebook-1-logo-png-transparent.png',
+            height: 100, width: 200,),
+          ),
+          Image.asset('asset/yt.png.png',
+            height: 100, width: 200,)
         ],
       ),
     );
