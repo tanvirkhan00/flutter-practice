@@ -4,7 +4,10 @@ import 'package:flutter_practice_project/class3.dart';
 import 'Module8_Stack.dart';
 import 'Module8_class2.dart';
 import 'listView.dart';
+<<<<<<< HEAD
 import 'module8_class3.dart';
+=======
+>>>>>>> 8e15fa7705b5d384004a8986317359d95ae0ff94
 
 class MyApp  extends StatelessWidget {
   MyApp ({super.key});
