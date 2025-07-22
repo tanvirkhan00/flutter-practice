@@ -59,7 +59,8 @@ class assignment1 extends StatelessWidget {
               child: Text('Top destinations', style: TextStyle(
                 fontSize: 25,
                 fontWeight: FontWeight.w500,
-              ),),
+              ),
+              ),
             ),
             Padding(
               padding: const EdgeInsets.only(left: 30, right: 30),
@@ -72,8 +73,11 @@ class assignment1 extends StatelessWidget {
                   Stack(
                     children: [
                       Positioned.fill(
-                        child: Image.network('https://w0.peakpx.com/wallpaper/137/377/HD-wallpaper-nature-bangladesh-green-lake-peace-sky-water.jpg',
-                        fit: BoxFit.cover,
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(20),
+                          child: Image.network('https://w0.peakpx.com/wallpaper/137/377/HD-wallpaper-nature-bangladesh-green-lake-peace-sky-water.jpg',
+                          fit: BoxFit.cover,
+                          ),
                         ),
                       ),
                       Positioned(
@@ -82,49 +86,207 @@ class assignment1 extends StatelessWidget {
                           child: Text('Sky', style: TextStyle(
                               color: Colors.white,
                               fontSize: 20,
-                              fontWeight: FontWeight.w400),
+                              fontWeight: FontWeight.w600),
                           ))
                     ],
                   ),
                   Stack(
                     children: [
                       Positioned.fill(
-                        child: Image.network('https://live.staticflickr.com/7579/15517592588_3a087f5e1a_b.jpg',
-                        fit: BoxFit.cover,
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(20),
+                          child: Image.network('https://live.staticflickr.com/7579/15517592588_3a087f5e1a_b.jpg',
+                          fit: BoxFit.cover,
+                          ),
                         ),
                       ),
                       Positioned(
                           bottom: 0,
-                          child: Text('Kash Full'))
+                          left: 10,
+                          child: Text('Kash Full',
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 20,
+                                fontWeight: FontWeight.w600),
+                          ))
                     ],
                   ),
                   Stack(
                     children: [
                       Positioned.fill(
-                        child: Image.network('https://d34vm3j4h7f97z.cloudfront.net/original/4X/7/b/5/7b5251b8905330ff52a46030e2630cc5474db7cb.jpeg',
-                        fit: BoxFit.cover,
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(20),
+                          child: Image.network('https://d34vm3j4h7f97z.cloudfront.net/original/4X/7/b/5/7b5251b8905330ff52a46030e2630cc5474db7cb.jpeg',
+                          fit: BoxFit.cover,
+                          ),
                         ),
                       ),
                       Positioned(
                           bottom: 0,
-                          child: Text('Sky'))
+                          left: 10,
+                          child: Text('Sky',
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 20,
+                                fontWeight: FontWeight.w600),
+                          ))
                     ],
                   ),
                   Stack(
                     children: [
                       Positioned.fill(
-                        child: Image.network('https://wallup.net/wp-content/uploads/2016/06/23/377712-photography-nature-river-island-boat-morning-sunlight-sky-sand-calm-Bangladesh-landscape.jpg',
-                        fit: BoxFit.cover,
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(20),
+                          child: Image.network('https://wallup.net/wp-content/uploads/2016/06/23/377712-photography-nature-river-island-boat-morning-sunlight-sky-sand-calm-Bangladesh-landscape.jpg',
+                          fit: BoxFit.cover,
+                          ),
                         ),
                       ),
                       Positioned(
                           bottom: 0,
-                          child: Text('Sky'))
+                          left: 10,
+                          child: Text('Sky',
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 20,
+                                fontWeight: FontWeight.w600),
+                          ))
                     ],
                   ),
                 ],
               ),
-            )
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 30),
+              child: Text('Trending Packages', style: TextStyle(
+                fontSize: 25,
+                fontWeight: FontWeight.w500,
+              ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 30, right: 30),
+              child: ListView(
+                shrinkWrap: true,
+                physics: NeverScrollableScrollPhysics(),
+                children: [
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(40),
+                    child: Card(
+                      child: Row(
+                        children: [
+                          Image.network('https://images.pexels.com/photos/122107/pexels-photo-122107.jpeg',
+                          fit: BoxFit.cover,
+                          height: 150,
+                            width: 150,
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(left: 10, right: 10),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text('Natural Beauty', style: TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.w700,
+                                ),
+                                ),
+                                SizedBox(
+                                  height: 20,
+                                ),
+                                Row(
+                                  children: [
+                                    Icon(Icons.watch_later_outlined),
+                                    Text(' 4 nights . 5 days'),
+                                  ],
+                                ),
+                                SizedBox(
+                                  height: 10,
+                                ),
+                                Row(
+                                  children: [
+                                    Text('\$799', style: TextStyle(color: Colors.blue, fontSize: 20, fontWeight: FontWeight.w700),),
+                                    SizedBox(
+                                      width: 10,
+                                    ),
+                                    ElevatedButton(onPressed: () {},
+                                      style: ElevatedButton.styleFrom(
+                                        backgroundColor: Colors.blue
+                                      ),
+                                      child: Text('Book Now', style: TextStyle(
+                                        color: Colors.white),
+                                    ),
+                                    ),
+                                  ],
+                                )
+                              ],
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(40),
+                    child: Card(
+                      child: Row(
+                        children: [
+                          ClipRRect(
+                            borderRadius: BorderRadius.only(topLeft:Radius.circular(20), bottomLeft: Radius.circular(20)),
+                            child: Image.network('https://cdn.pixabay.com/photo/2020/01/17/05/49/boat-4772295_640.jpg',
+                            fit: BoxFit.cover,
+                            height: 150,
+                              width: 150,
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(left: 10, right: 10),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text('River Side', style: TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.w700,
+                                ),
+                                ),
+                                SizedBox(
+                                  height: 20,
+                                ),
+                                Row(
+                                  children: [
+                                    Icon(Icons.watch_later_outlined),
+                                    Text(' 4 nights . 5 days'),
+                                  ],
+                                ),
+                                SizedBox(
+                                  height: 10,
+                                ),
+                                Row(
+                                  children: [
+                                    Text('\$799', style: TextStyle(color: Colors.blue, fontSize: 20, fontWeight: FontWeight.w700),),
+                                    SizedBox(
+                                      width: 10,
+                                    ),
+                                    ElevatedButton(onPressed: () {},
+                                      style: ElevatedButton.styleFrom(
+                                        backgroundColor: Colors.blue
+                                      ),
+                                      child: Text('Book Now', style: TextStyle(
+                                        color: Colors.white),
+                                    ),
+                                    ),
+                                  ],
+                                )
+                              ],
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
+
+                ],
+              ),
+            ),
 
           ],
         ),
