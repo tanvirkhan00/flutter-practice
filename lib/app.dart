@@ -7,6 +7,7 @@ import 'Module 9/Module9_Class3.dart';
 import 'Figma_practice/product_page.dart';
 import 'Module 9/city_card.dart';
 import 'Module 9/class_1.dart';
+import 'Module_11/counterApp.dart';
 import 'Module_8/Module8_Stack.dart';
 import 'Module_8/Module8_class2.dart';
 import 'listView.dart';
@@ -24,15 +25,16 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.teal,
         appBarTheme: AppBarTheme(
           color: Colors.green
-        )
+        ),
       ),
       title: 'This is my first project',
-      initialRoute: '/Module9_Class3',
+      initialRoute: '/Material_App',
       routes: {
         '/' : (context) => assignment1(),
         '/Figma' : (context) => cove_page(),
         '/Class1' : (context) => alert(),
-        '/Module9_Class3' : (context) => Moddue9Class3()
+        '/Module9_Class3' : (context) => Moddue9Class3(),
+        '/Material_App' : (context) => CounterApp()
       },
     );
   }
