@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_practice_project/Figma_practice/product_page.dart';
 
 class cove_page extends StatelessWidget {
   const cove_page({super.key});
@@ -41,7 +42,7 @@ class cove_page extends StatelessWidget {
                   height: 50,
                   width: double.infinity,
                     child: ElevatedButton(onPressed: (){
-                      print("Hello Cuty");
+                      Navigator.push(context , MaterialPageRoute(builder: (context) => productPage()));
                     },
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.brown
