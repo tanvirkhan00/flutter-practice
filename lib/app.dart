@@ -8,6 +8,7 @@ import 'Figma_practice/product_page.dart';
 import 'Module 9/city_card.dart';
 import 'Module 9/class_1.dart';
 import 'Module_11/counterApp.dart';
+import 'Module_11/sumApp.dart';
 import 'Module_8/Module8_Stack.dart';
 import 'Module_8/Module8_class2.dart';
 import 'listView.dart';
@@ -28,13 +29,14 @@ class MyApp extends StatelessWidget {
         ),
       ),
       title: 'This is my first project',
-      initialRoute: '/Material_App',
+      initialRoute: '/calculator',
       routes: {
         '/' : (context) => assignment1(),
         '/Figma' : (context) => cove_page(),
         '/Class1' : (context) => alert(),
         '/Module9_Class3' : (context) => Moddue9Class3(),
-        '/Material_App' : (context) => CounterApp()
+        '/Material_App' : (context) => CounterApp(),
+        '/calculator' : (context) => Calculator()
       },
     );
   }
