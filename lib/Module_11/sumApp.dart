@@ -28,26 +28,25 @@ class _CalculatorState extends State<Calculator> {
       } else if (value == '=') {
         num2 = double.parse(_input);
         if(_ope == '+') {
-          _input = (num1+num2).toString();
+          _output = (num1+num2).toString();
         }else if(_ope == '-') {
-          _input = (num1 - num2).toString();
+          _output = (num1 - num2).toString();
         } else if(_ope == '*') {
-          _input = (num1 * num2).toString();
+          _output = (num1 * num2).toString();
         } else if(_ope == '/') {
-          _input = (num2 != 0 ? (num1/num2).toString() : 'Error');
+          _output = (num2 != 0 ? (num1/num2).toString() : 'Error');
         }
-        _input = _output;
       } else if (['+','-','*','/'].contains(value)){
         num1 = double.parse(_input);
         _ope= value;
         _input ='';
       } else {
-        if( value == '0') {
+        if(_input == '0') {
           _input = value;
-        } else{
-          _input +=value;
+        } else {
+          _input += value;
         }
-        _output = _input;
+        _output = _input ;
       }
     });
   }
