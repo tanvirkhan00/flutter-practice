@@ -56,17 +56,26 @@ class _CalculatorState extends State<Calculator> {
     return Scaffold(
       backgroundColor: Colors.black12,
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Expanded(
             child: Container(
               alignment: Alignment.bottomRight,
               padding: EdgeInsets.all(50),
-              child: Text(_output, style: TextStyle(
-                fontSize: 70,
-                fontWeight: FontWeight.w600,
-                color: Colors.white
-              ),),
+              child:Column(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+
+                  (_ope.isNotEmpty && _input.isNotEmpty) ?  Text('$num1 $_ope $_input', style: TextStyle(
+                    fontSize: 40,
+                    color: Colors.grey[700],
+                  ), ) : SizedBox(),
+                  Text(_output, style: TextStyle(
+                    fontSize: 70,
+                    fontWeight: FontWeight.w600,
+                    color: Colors.white
+                  ),),
+                ],
+              ),
             ),
           ),
           Row(
