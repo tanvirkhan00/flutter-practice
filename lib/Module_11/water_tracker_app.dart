@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_practice_project/Module_11/widget/water_button.dart';
 
@@ -11,10 +13,31 @@ class WaterTrackerApp extends StatefulWidget {
 class _WaterTrackerAppState extends State<WaterTrackerApp> {
   int currentIntake = 0;
   final goal = 10000;
+  Timer? _time ;
+
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    _time= Timer.periodic(Duration(seconds: 1), (timer) {
+      if (currentIntake >0) {
+        setState(() {
+          currentIntake = (currentIntake-1).clamp(0, goal);
+        });
+      }
+    });
+  }
 
   void waterAdd(int amount) {
     setState(() {
       currentIntake = (currentIntake + amount).clamp(0, 10000);
+    });
+  }
+
+  void reset(){
+    setState(() {
+      currentIntake = 0;
     });
   }
 
@@ -93,6 +116,17 @@ class _WaterTrackerAppState extends State<WaterTrackerApp> {
                 water_button(amount: 5000, onClick: ()=> waterAdd(5000),),
                 water_button(amount: 10000, onClick: ()=> waterAdd(10000),),
               ],
+            ),
+
+            SizedBox(
+              child: 
+              ElevatedButton(onPressed:()=> reset(),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.yellow
+                  ),
+                  child: Text('Reset Tank', style: TextStyle(
+                    color: Colors.black
+                  ),)),
             )
           ],
         ),

@@ -10,6 +10,7 @@ import 'Module 9/class_1.dart';
 import 'Module_11/counterApp.dart';
 import 'Module_11/sumApp.dart';
 import 'Module_11/water_tracker_app.dart';
+import 'Module_12/money_management_app.dart';
 import 'Module_8/Module8_Stack.dart';
 import 'Module_8/Module8_class2.dart';
 import 'listView.dart';
@@ -24,22 +25,24 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         brightness: Brightness.light,
         primaryColor: Colors.white,
-        primarySwatch: Colors.teal,
+        primarySwatch: Colors.blueGrey,
         appBarTheme: AppBarTheme(
-          color: Colors.green
+          color: Colors.teal
         ),
       ),
       title: 'This is my first project',
-      initialRoute: '/WaterTrackerApp',
-      routes: {
-        '/' : (context) => assignment1(),
-        '/Figma' : (context) => cove_page(),
-        '/Class1' : (context) => alert(),
-        '/Module9_Class3' : (context) => Moddue9Class3(),
-        '/Material_App' : (context) => CounterApp(),
-        '/calculator' : (context) => Calculator(),
-        '/WaterTrackerApp' : (context) => WaterTrackerApp()
-      },
+      home: MoneyManagementApp(),
+      // initialRoute: '/MoneyManagementApp',
+      // routes: {
+      //   '/' : (context) => assignment1(),
+      //   '/Figma' : (context) => cove_page(),
+      //   '/Class1' : (context) => alert(),
+      //   '/Module9_Class3' : (context) => Moddue9Class3(),
+      //   '/Material_App' : (context) => CounterApp(),
+      //   '/calculator' : (context) => Calculator(),
+      //   '/WaterTrackerApp' : (context) => WaterTrackerApp(),
+      //   '/MoneyManagementApp' : (context) => MoneyManagementApp()
+      // },
     );
   }
 }
