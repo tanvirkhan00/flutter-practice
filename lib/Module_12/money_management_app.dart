@@ -19,19 +19,92 @@ class _MoneyManagementAppState extends State<MoneyManagementApp> with SingleTick
 
   void _showFButtonA(BuildContext context) {
     showModalBottomSheet(context: context, builder: (context){
-      return Row(
-        children: [
-          ElevatedButton(onPressed: (){},
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.green
+      return Padding(
+        padding: const EdgeInsets.all(20),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            ElevatedButton(onPressed: (){
+              Navigator.pop(context);
+              _showForm(isEarning: true);
+            },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.green,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10)
+                  )
+                ),
+                child: Text('Add Earning', style: TextStyle(
+                  color: Colors.white
+                ),)),
+            ElevatedButton(onPressed: (){
+              Navigator.pop(context);
+              _showForm(isEarning: false);
+            },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.red,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10)
+                    )
+                ),
+                child: Text('Add Expense', style: TextStyle(
+                  color: Colors.white
+                ),)),
+          ],
+        ),
+      );
+    });
+  }
+
+  void _showForm ({required bool isEarning}){
+    showModalBottomSheet(context: context, builder: (context){
+      return Padding(
+        padding: const EdgeInsets.all(15),
+        child: Column(
+          children: [
+            Text(
+              isEarning ? 'Add Earning' : 'Add Expense', style: TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.bold
+            ),
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            TextField(
+              decoration: InputDecoration(
+                labelText: 'Title',
+                border: OutlineInputBorder()
               ),
-              child: Text('Add Earning')),
-          ElevatedButton(onPressed: (){},
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.red
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            TextField(
+              keyboardType: TextInputType.number,
+              decoration: InputDecoration(
+                  labelText: 'Amount',
+                  border: OutlineInputBorder()
               ),
-              child: Text('Add Expense')),
-        ],
+            ),
+            SizedBox(height: 10,),
+            SizedBox(
+              width: double.infinity,
+              child: ElevatedButton(onPressed: (){},
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: isEarning ? Colors.green : Colors.red,
+                    foregroundColor: Colors.white,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10)
+                    )
+                  ),
+                  child: Text(isEarning ? 'Add Earning' : 'Add Expense', style: TextStyle(
+                    fontSize: 18
+                  ),)),
+            )
+
+          ],
+        ),
       );
     });
   }
