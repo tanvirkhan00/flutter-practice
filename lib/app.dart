@@ -10,6 +10,7 @@ import 'Module 9/class_1.dart';
 import 'Module_11/counterApp.dart';
 import 'Module_11/sumApp.dart';
 import 'Module_11/water_tracker_app.dart';
+import 'Module_12/Todo_app/todo_main_screen.dart';
 import 'Module_12/money_management_app.dart';
 import 'Module_8/Module8_Stack.dart';
 import 'Module_8/Module8_class2.dart';
@@ -31,7 +32,7 @@ class MyApp extends StatelessWidget {
         ),
       ),
       title: 'This is my first project',
-      home: MoneyManagementApp(),
+      home: Todo_screen(),
       // initialRoute: '/MoneyManagementApp',
       // routes: {
       //   '/' : (context) => assignment1(),
