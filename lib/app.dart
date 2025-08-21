@@ -16,6 +16,7 @@ import 'Module_8/Module8_Stack.dart';
 import 'Module_8/Module8_class2.dart';
 import 'listView.dart';
 import 'Module_8/module8_class3.dart';
+import 'own_practice_project/expence_tracker_app.dart';
 
 class MyApp extends StatelessWidget {
   MyApp({super.key});
@@ -32,7 +33,7 @@ class MyApp extends StatelessWidget {
         ),
       ),
       title: 'This is my first project',
-      home: Todo_screen(),
+      home: ExpenseTrackerApp(),
       // initialRoute: '/MoneyManagementApp',
       // routes: {
       //   '/' : (context) => assignment1(),
