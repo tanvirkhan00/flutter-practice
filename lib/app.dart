@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_practice_project/Module_8/Module8_class1.dart';
 import 'package:flutter_practice_project/class3.dart';
 import 'Assignment/assignment1.dart';
+import 'CRUD App Function/CRUD_home_screen.dart';
 import 'Figma_practice/cover_page.dart';
 import 'Module 9/Module9_Class3.dart';
 import 'Figma_practice/product_page.dart';
@@ -33,7 +34,7 @@ class MyApp extends StatelessWidget {
         ),
       ),
       title: 'This is my first project',
-      home: ExpenseTrackerApp(),
+      home: CrudHomeScreen(),
       // initialRoute: '/MoneyManagementApp',
       // routes: {
       //   '/' : (context) => assignment1(),
