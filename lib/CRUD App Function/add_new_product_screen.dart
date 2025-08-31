@@ -125,7 +125,7 @@ class _AddNewProductScreenState extends State<AddNewProductScreen> {
   }
 
   Future<void> _addNewProduct () async {
-    if(_formKey.currentState!.validate()) {
+    if(!_formKey.currentState!.validate()) {
       return;
     }
 
