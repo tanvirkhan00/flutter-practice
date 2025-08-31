@@ -6,6 +6,7 @@ import 'package:http/http.dart';
 class AddNewProductScreen extends StatefulWidget {
   const AddNewProductScreen({super.key});
 
+
   @override
   State<AddNewProductScreen> createState() => _AddNewProductScreenState();
 }

@@ -63,7 +63,9 @@ class _ProductItemState extends State<ProductItem> {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => UpdateProductScreen(),
+                  builder: (context) => UpdateProductScreen(
+                    product: widget.product,
+                  ),
                 ),
               );
             }
