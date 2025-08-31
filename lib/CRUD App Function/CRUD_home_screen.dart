@@ -18,6 +18,7 @@ class CrudHomeScreen extends StatefulWidget {
 class _CrudHomeScreenState extends State<CrudHomeScreen> {
 
   List<Product> _productList =[] ;
+  bool _getProductInprogress = false ;
 
   @override
   void initState() {
@@ -28,6 +29,8 @@ class _CrudHomeScreenState extends State<CrudHomeScreen> {
 
   Future<void> getProduct() async {
     _productList.clear();
+    _getProductInprogress =true ;
+    setState(() { });
     Uri uri = Uri.parse(Urls.getProduct);
     Response response = await get(uri);
 
@@ -49,6 +52,8 @@ class _CrudHomeScreenState extends State<CrudHomeScreen> {
         _productList.add(product);
       }
     }
+
+    _getProductInprogress =false ;
     setState(() { });
   }
 
@@ -60,16 +65,25 @@ class _CrudHomeScreenState extends State<CrudHomeScreen> {
         getProduct();
     }, icon: Icon(Icons.refresh),)],
       ),
-      body: ListView.separated(
-        itemCount: _productList.length,
-          itemBuilder: (context, index) {
-           return ProductItem(product: _productList[index],);
-          },
-          separatorBuilder: (context, index) {
-          return Divider(
-            indent: 70,
-          );
-          },),
+      body: Visibility(
+        visible: _getProductInprogress == false,
+        replacement: Center(
+          child: CircularProgressIndicator(),
+        ),
+        child: ListView.separated(
+          itemCount: _productList.length,
+            itemBuilder: (context, index) {
+             return ProductItem(product: _productList[index],
+               refreshProductList: () {
+                 getProduct();
+               },);
+            },
+            separatorBuilder: (context, index) {
+            return Divider(
+              indent: 70,
+            );
+            },),
+      ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           Navigator.push(
