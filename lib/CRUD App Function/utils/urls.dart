@@ -4,4 +4,6 @@ class Urls {
   static const String getProduct = '$_baseUrl/ReadProduct';
 
   static String deleteProductUrl(String id) => '$_baseUrl/DeleteProduct/$id';
+
+  static String updateProductUrl (String id) => '$_baseUrl/UpdateProduct/$id';
 }
