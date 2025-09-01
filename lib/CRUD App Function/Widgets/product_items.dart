@@ -24,7 +24,7 @@ class _ProductItemState extends State<ProductItem> {
       leading: CircleAvatar(
         child: Image.network(widget.product.image,
           errorBuilder: (_, __, ___){
-          return Icon(Icons.error);
+            return Icon(Icons.error);
           },),
       ),
       title: Text( widget.product.name ),
@@ -88,7 +88,7 @@ class _ProductItemState extends State<ProductItem> {
 
     if(response.statusCode == 200){
       widget.refreshProductList();
-      }
+    }
 
     _deleteinProgress = false ;
     setState(() {});
