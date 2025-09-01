@@ -1,16 +1,20 @@
-
+import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_practice_project/CRUD%20App%20Function/Models/product.dart';
+import 'package:flutter_practice_project/CRUD%20App%20Function/utils/urls.dart';
+import 'package:http/http.dart';
 
 class UpdateProductScreen extends StatefulWidget {
-  const UpdateProductScreen({super.key, required this.product});
+  const UpdateProductScreen({super.key, required this.product, required this.refreshProductList});
   final Product product;
+  final VoidCallback refreshProductList;
 
   @override
   State<UpdateProductScreen> createState() => _UpdateProductScreenState();
 }
 
 class _UpdateProductScreenState extends State<UpdateProductScreen> {
+  bool _updateProductInProgress = false ;
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   final TextEditingController _nameTEController = TextEditingController();
   final TextEditingController _codeTEController = TextEditingController();
@@ -86,14 +90,55 @@ class _UpdateProductScreenState extends State<UpdateProductScreen> {
                     ),
                   ),
                   SizedBox(height: 10,),
-                  FilledButton(onPressed: (){},
-                      child: Text("Update Product"))
+                  Visibility(
+                    visible: _updateProductInProgress = true,
+                    replacement: Center(
+                      child: CircularProgressIndicator(),
+                    ),
+                    child: FilledButton(onPressed: _updateProduct,
+                        child: Text("Update Product")),
+                  )
                 ],
               ),
             )),
       ),
     );
   }
+
+  Future<void> _updateProduct() async {
+    _updateProductInProgress = true ;
+    setState(() { });
+    Uri uri = Uri.parse(Urls.updateProductUrl(widget.product.id));
+
+    Map<String, dynamic> requestBody ={
+      'name' : _nameTEController.text.trim(),
+      'code' : _codeTEController.text.trim(),
+      'quantity' : int.tryParse(_quantityTEController.text.trim()) ?? 0,
+      'unitPrice' : int.tryParse(_priceTEController.text.trim()) ?? 0,
+      'img' : _imageTEController.text.trim(),
+    };
+    Response response = await post(uri,
+        headers: {
+          'Content-type': 'application/json'
+        }, body: jsonEncode(requestBody));
+
+    debugPrint(response.statusCode.toString());
+    debugPrint(response.body);
+
+    if(response.statusCode == 200) {
+      widget.refreshProductList();
+      if(mounted) {
+        Navigator.pop(context);
+      } else {
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+            content: Text('Update Failed ${response.statusCode}')));
+      }
+    }
+    _updateProductInProgress = false ;
+    setState(() {});
+  }
+
+
   @override
   void dispose() {
     _nameTEController.dispose();

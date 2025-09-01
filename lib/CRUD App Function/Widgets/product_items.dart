@@ -64,7 +64,7 @@ class _ProductItemState extends State<ProductItem> {
                 context,
                 MaterialPageRoute(
                   builder: (context) => UpdateProductScreen(
-                    product: widget.product,
+                    product: widget.product, refreshProductList: widget.refreshProductList,
                   ),
                 ),
               );
