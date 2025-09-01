@@ -91,7 +91,7 @@ class _UpdateProductScreenState extends State<UpdateProductScreen> {
                   ),
                   SizedBox(height: 10,),
                   Visibility(
-                    visible: _updateProductInProgress = true,
+                    visible: _updateProductInProgress == false,
                     replacement: Center(
                       child: CircularProgressIndicator(),
                     ),
@@ -111,11 +111,11 @@ class _UpdateProductScreenState extends State<UpdateProductScreen> {
     Uri uri = Uri.parse(Urls.updateProductUrl(widget.product.id));
 
     Map<String, dynamic> requestBody ={
-      'name' : _nameTEController.text.trim(),
-      'code' : _codeTEController.text.trim(),
-      'quantity' : int.tryParse(_quantityTEController.text.trim()) ?? 0,
-      'unitPrice' : int.tryParse(_priceTEController.text.trim()) ?? 0,
-      'img' : _imageTEController.text.trim(),
+      'ProductName' : _nameTEController.text.trim(),
+      'ProductCode' : _codeTEController.text.trim(),
+      'Qty' : int.tryParse(_quantityTEController.text.trim()) ?? 0,
+      'UnitPrice' : int.tryParse(_priceTEController.text.trim()) ?? 0,
+      'Img' : _imageTEController.text.trim(),
     };
     Response response = await post(uri,
         headers: {
@@ -125,15 +125,19 @@ class _UpdateProductScreenState extends State<UpdateProductScreen> {
     debugPrint(response.statusCode.toString());
     debugPrint(response.body);
 
-    if(response.statusCode == 200) {
+    if (response.statusCode == 200) {
       widget.refreshProductList();
-      if(mounted) {
+      if (mounted) {
         Navigator.pop(context);
-      } else {
-        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-            content: Text('Update Failed ${response.statusCode}')));
+      }
+    } else {
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('Update Failed: ${response.statusCode}')),
+        );
       }
     }
+
     _updateProductInProgress = false ;
     setState(() {});
   }

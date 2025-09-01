@@ -52,7 +52,6 @@ class _CrudHomeScreenState extends State<CrudHomeScreen> {
         _productList.add(product);
       }
     }
-
     _getProductInprogress =false ;
     setState(() { });
   }
