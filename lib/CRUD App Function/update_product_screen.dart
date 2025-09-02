@@ -137,7 +137,6 @@ class _UpdateProductScreenState extends State<UpdateProductScreen> {
         );
       }
     }
-
     _updateProductInProgress = false ;
     setState(() {});
   }

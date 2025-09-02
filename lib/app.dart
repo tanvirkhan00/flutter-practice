@@ -4,6 +4,7 @@ import 'package:flutter_practice_project/class3.dart';
 import 'Assignment/assignment1.dart';
 import 'CRUD App Function/CRUD_home_screen.dart';
 import 'Figma_practice/cover_page.dart';
+import 'Live Test/recipeListScreen.dart';
 import 'Module 9/Module9_Class3.dart';
 import 'Figma_practice/product_page.dart';
 import 'Module 9/city_card.dart';
@@ -34,7 +35,7 @@ class MyApp extends StatelessWidget {
         ),
       ),
       title: 'This is my first project',
-      home: CrudHomeScreen(),
+      home: RecipeListScreen(),
       // initialRoute: '/MoneyManagementApp',
       // routes: {
       //   '/' : (context) => assignment1(),
